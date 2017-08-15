@@ -1,0 +1,69 @@
+body {margin: 0;}
+
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #333;
+    background: -webkit-linear-gradient(black, #333, black); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(black, #333, black); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(black, #333, black); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, #333, black); /* Standard syntax */
+    
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: transform 300ms ease-in-out;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;
+background: -webkit-linear-gradient(black, #333, black);
+background: -moz-linear-gradient(black, #333, black);
+background: -o-linear-gradient(black, #333, black);
+background: linear-gradient(black, #333, black); 
+border-right:2px solid #333;
+border-left:2px solid #333;
+transform: translate(5%,4%);}
+ul.topnav li a:hover:is(.active) {background-color: #111;
+border-right:2px solid #333;}
+
+ul.topnav li a.active:hover {
+transform: translate(5%,4%); 
+border-right:2px solid #333;
+border-left:2px solid #333;  
+background: -webkit-linear-gradient(black, #005CCC, black);
+background: -moz-linear-gradient(black, #005CCC, black);
+background: -o-linear-gradient(black, #005CCC, black);
+background: linear-gradient(black, #005CCC, black); 
+  
+}
+
+ul.topnav li a.active {background-color: #005CCC;    
+background: -webkit-linear-gradient(black, #005CCC, black);
+background: -moz-linear-gradient(black, #005CCC, black);
+background: -o-linear-gradient(black, #005CCC, black);
+background: linear-gradient(black, #005CCC, black); 
+  
+ transition: transform 300ms ease-in-out;}
+ul.topnav li a#site-name {background-color: #005CCC;
+color: white;
+font-family: cursive;
+text-decoration-style: solid;
+text-shadow: .5px .5px #E4FAEF;
+transition: transform 300ms ease-in-out;
+}
+/*#4CAF50*/
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
