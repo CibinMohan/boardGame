@@ -9,6 +9,7 @@ constructor(props){
         email:'',
         password:'',
         passwordConf:'',
+        errors:[]
     }
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -19,8 +20,14 @@ onChange(e)
 }
 onSubmit(e)
 {
+    this.setState({errors:{}});
     e.preventDefault();
-    this.props.userSignupRequest(this.state);
+    this.props.userSignupRequest(this.state).then((response) => this.setState({errors:response.data})
+); 
+    /*.then(
+        ()=> {console.log('sssLLL')},
+    ({data}) => this.setState({errors:data})
+    );*/
 }
 render(){
     return(
@@ -85,6 +92,6 @@ render(){
 }
 
 SignUpForm.propTypes ={
-    userSignupRequest:React.PropTypes.func.isRequired
+    userSignupRequest: React.PropTypes.func.isRequired
 }
 export default SignUpForm;
