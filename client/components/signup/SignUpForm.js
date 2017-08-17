@@ -36,10 +36,23 @@ onSubmit(e)
      e.preventDefault();
     if(this.isValid()){
         this.setState({errors:{},isLoading:true});
-        this.props.userSignupRequest(this.state).then((response) => this.setState({errors:response.data,isLoading:false})
+        this.props.userSignupRequest(this.state).then(
+            (response) =>{
+                this.props.addFlashMessage({
+                    type:'success',
+                    text:'Signup Success'
+                }),
+                 this.setState({isLoading:false}),
+                // this.context.router.push('/')
+                this.context.router.history.push('/')
+            }
          );
     } 
-    /*.then(
+    /*
+    (response) =>
+         this.setState({errors:response.data,isLoading:false})
+         );
+    .then(
         ()=> {console.log('sssLLL')},
     ({data}) => this.setState({errors:data})
     );*/
@@ -102,7 +115,12 @@ render(){
 }
 }
 
+SignUpForm.contextTypes={
+    router: React.PropTypes.object.isRequired
+}
+
 SignUpForm.propTypes ={
+  addFlashMessage : React.PropTypes.func.isRequired,
     userSignupRequest: React.PropTypes.func.isRequired
 }
 export default SignUpForm;

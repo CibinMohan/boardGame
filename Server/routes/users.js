@@ -8,10 +8,14 @@ app.use(bodyParser.json());
 
 app.post('/',function(request,response){
 console.log(request.body);
-const {errors, isValid} = validateInput(request.body);
-if(!isValid){
-    response.json(errors);
-}
+//const {errors, isValid} = validateInput(request.body);
+//if(isValid)
+    {
+         response.json({success:true});
+    }
+    //else{
+         //response.status(400).json(errors);
+    
 });
 
 export default app;
