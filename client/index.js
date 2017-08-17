@@ -12,7 +12,7 @@ import {createStore, applyMiddleware} from 'redux';
 const store = createStore(
     (state ={})=> state,
     applyMiddleware(thunk)
-)
+);
 render(
 <Provider store={store}>
 <BrowserRouter >

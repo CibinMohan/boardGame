@@ -1,11 +1,17 @@
 import express from 'express';
 import path from'path';
 import webpack from 'webpack';
+import bodyParser from 'body-parser';
+import users from './routes/users';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev';
 let app = express();
 
+app.use(bodyParser.json());
+//app.use('/api/users', users);
+
+app.use('/api/users', users);
 const compile = webpack(webpackConfig);
 app.use(webpackMiddleware(compile,{
     hot: true,
