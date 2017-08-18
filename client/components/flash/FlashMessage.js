@@ -16,7 +16,7 @@ render(){
             'alert-danger': type==='error'
         })} >
         <button onClick = {this.onClick} className="close"><span>&times;</span></button>
-            {text}
+        {text}
         </div>
     );
 }
