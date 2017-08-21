@@ -4,6 +4,7 @@ import { BrowserRouter, IndexRoute, Route} from 'react-router-dom';
 import App from './components/App';
 import Greetings from './components/Greetings';
 import SignupPage from './components/signup/SignupPage';
+import LoginPage from './components/login/LoginPage';
 import Signin from './components/signup/Signin';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
@@ -26,6 +27,7 @@ render(
         <Route path="/" component={Greetings}/>
         <Route path="/signup" component={SignupPage}></Route>
         <Route path="/greet" component={Signin}></Route>
+        <Route path="/login" component={LoginPage}></Route>
     </App>
 </BrowserRouter>
 </Provider>

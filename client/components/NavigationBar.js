@@ -15,7 +15,7 @@ class NavigationBar extends React.Component{
                 <ul className="nav navbar-nav navbar-right">
                 <li>
                 <Link to = "signup"><span className="glyphicon glyphicon-user"></span> Sign Up</Link></li>
-                <li><Link to = "signup"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
+                <li><Link to = "login"><span className="glyphicon glyphicon-log-in"></span> Login</Link></li>
                 </ul>
             </div>
             </nav>

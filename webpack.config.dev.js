@@ -21,6 +21,7 @@ plugins:[
 module:{
     loaders:[
         {
+    
             test: /\.js$/,
             include:[ 
                 path.join(__dirname,'client'),
@@ -32,6 +33,10 @@ module:{
 },
 resolve:{
     extensions:['*', '.js', '.jsx']
+},
+node:{
+    net:'empty',
+    dns:'empty'
 }
 
 }

@@ -3,6 +3,7 @@ import path from'path';
 import webpack from 'webpack';
 import bodyParser from 'body-parser';
 import users from './routes/users';
+import auth from './routes/auth';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackConfig from '../webpack.config.dev';
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 //app.use('/api/users', users);
 
 app.use('/api/users', users);
+app.use('/api/auth', auth);
 const compile = webpack(webpackConfig);
 app.use(webpackMiddleware(compile,{
     hot: true,
