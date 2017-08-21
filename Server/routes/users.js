@@ -33,7 +33,19 @@ function validateInputs(data, otherValidations){
                  };
         
         }
-    )
+    )}
+        
+    app.get('/:identifier', (request,response)=>{
+        user.query({
+            select:['username','email'],
+            where: {email: request.params.identifier},
+            orWhere: {username: request.params.identifier}
+        }).fetch().then(usr=>{
+            response.json({usr});
+        });
+    });
+
+    
     // return Promise.all([
     //         user.where({email: data.email}).fetch().then(usr=>
     //         {
@@ -56,8 +68,6 @@ function validateInputs(data, otherValidations){
     //                 };
     //             });
     
-}
-
 
 app.post('/',function(request,response){
 //const {errors, isValid} = validateInput(request.body);
