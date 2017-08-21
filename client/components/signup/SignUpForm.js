@@ -25,6 +25,7 @@ onChange(e)
 }
 isValid(){
     const {errors, isValid} = validateInput(this.state);    
+    console.log("sasa"+errors);
     if(!isValid)
     {
         this.setState({errors})
@@ -35,16 +36,25 @@ onSubmit(e)
 {
      e.preventDefault();
     if(this.isValid()){
-        this.setState({errors:{},isLoading:true});
+        this.setState({errors:{},isLoading:false});
         this.props.userSignupRequest(this.state).then(
             (response) =>{
-                this.props.addFlashMessage({
+                
+                console.log("aaa1aa"+response.data.success);
+                if(response.data.success)
+                {
+                    this.props.addFlashMessage({
                     type:'success',
                     text:'Signup Success'
-                }),
-                 this.setState({isLoading:false}),
+                     },
+                     this.context.router.history.push('/')
+                )
+            }else{
+                     console.log("aaaa"+response.errors);
+                   this.setState({errors:response.data.error});
+                }
+                 this.setState({isLoading:false})
                 // this.context.router.push('/')
-                this.context.router.history.push('/')
             }
          );
     } 
