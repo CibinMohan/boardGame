@@ -14,6 +14,7 @@ constructor(props){
                 <input 
                     value={this.props.value}
                     onChange = {this.props.onChange}
+                    onBlur ={this.props.checkUserExcists}
                     type={this.props.type}
                     name={this.props.field} 
                     className="form-control" 

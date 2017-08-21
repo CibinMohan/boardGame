@@ -4,8 +4,10 @@ import isEmpty from 'lodash/isEmpty'
 export default function validateInput(data){
     let errors ={};
     let isValid = false;
+    console.log("ser0"+data.username);
     if(Validator.isEmpty(data.username))
     {
+        console.log("ser"+data.username);
         errors.username = 'The field is required';
     }
     

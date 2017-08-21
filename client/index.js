@@ -7,11 +7,17 @@ import SignupPage from './components/signup/SignupPage';
 import Signin from './components/signup/Signin';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
+import rootReducer from './rootReducer';
 
 const store = createStore(
-    (state ={})=> state,
-    applyMiddleware(thunk)
+   // (state ={})=> state,
+    rootReducer,
+    compose(
+         applyMiddleware(thunk),
+         window.devToolsExtension ? window.devToolsExtension(): f=>f
+    )
+   
 );
 render(
 <Provider store={store}>
