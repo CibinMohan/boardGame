@@ -30,7 +30,6 @@ render(
 <Provider store={store}>
 <BrowserRouter >
 <App>
-        <Route path="/" component={Greetings}/>
         <Route path="/signup" component={SignupPage}></Route>
         <Route path="/greet" component={Signin}></Route>
         <Route path="/login" component={LoginPage}></Route>
