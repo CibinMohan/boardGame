@@ -35,13 +35,10 @@ onSubmit(e){
     {
         this.setState({errors:{}, isLoading:true});
         this.props.login(this.state).then((response)=>{
-        if(response.data.success)
-        {
         this.context.router.history.push('/')
-        }
-        else{
-            this.setState({errors:response.data.errors});
-        }
+        }).catch(error => {
+            console.log(error.response)
+            this.setState({errors:error.response.data.errors, isLoading:false})
         })
     }
 }

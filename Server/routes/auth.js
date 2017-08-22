@@ -28,10 +28,10 @@ app.post('/', (request,response)=>{
                 config.jwtSecret);
                 response.json({token, success:true});
             }else{
-                response.json({success:false,errors:{form:'Invalid Username/Password'}});
+                response.status(401).json({success:false,errors:{form:'Invalid Username/Password'}});
             }
         }else{
-                response.json({success:false, errors:{form:'Invalid Username/Password'}});
+                response.status(401).json({success:false, errors:{form:'Invalid Username/Password'}});
             }
     });
 });
